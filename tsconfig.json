@@ -18,17 +18,17 @@
     "baseUrl": ".",
     "noUncheckedIndexedAccess": true,
     "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    {
+      "name": "next"
+    }]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    "app/page.tsx_",
+    "app/(frontend)/[[...page]]/opengraph-image.tsx_", "app/(frontend)/opengraph-image.tsx_"
   ],
   "exclude": ["node_modules"]
 }
