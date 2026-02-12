@@ -1,4 +1,4 @@
-import LogoSquare from 'components/logo-square';
+import LogoNav from 'components/logo-nav';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { Repeater, types } from 'react-bricks/rsc';
@@ -24,7 +24,7 @@ const Footer: types.Brick<FooterProps> = ({ links }) => {
       >
         <div>
           <Link className={'flex items-center gap-2 text-black md:pt-1 dark:text-white'} href="/">
-            <LogoSquare size="sm" />
+            <LogoNav size="sm" />
             <span className="uppercase">{SITE_NAME}</span>
           </Link>
         </div>
