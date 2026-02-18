@@ -1,4 +1,4 @@
-import { RichText, Text, types } from 'react-bricks/rsc';
+import { RichText, Text, types } from "react-bricks/rsc";
 
 interface TitleProps {
   title: types.TextValue;
@@ -20,10 +20,10 @@ const Title: types.Brick<TitleProps> = ({ title }) => {
 };
 
 Title.schema = {
-  name: 'title',
-  label: 'Title',
+  name: "title",
+  label: "Title",
   getDefaultProps: () => ({
-    title: 'Page title'
+    title: "Page title"
   })
 };
 

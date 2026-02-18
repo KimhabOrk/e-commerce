@@ -1,8 +1,8 @@
-import { GridTileImage } from '@/components/grid/tile';
-import { getCollectionProducts } from '@/lib/shopify';
-import { Product } from '@/lib/shopify/types';
-import Link from 'next/link';
-import { types } from 'react-bricks/rsc';
+import { GridTileImage } from "@/components/grid/tile";
+import { getCollectionProducts } from "@/lib/shopify";
+import { Product } from "@/lib/shopify/types";
+import Link from "next/link";
+import { types } from "react-bricks/rsc";
 
 interface HomeCarouselProps {
   products: Product[] | null;
@@ -14,7 +14,7 @@ const HomeCarousel: types.Brick<HomeCarouselProps> = ({ products }) => {
   // Purposefully duplicating products to make the carousel loop and not run out of products on wide screens.
   const carouselProducts = [...products, ...products, ...products];
   return (
-    <div className=" w-full overflow-x-auto pb-6 pt-1">
+    <div className="w-full overflow-x-auto pb-6 pt-1">
       <ul className="flex animate-carousel gap-4">
         {carouselProducts.map((product, i) => (
           <li
@@ -42,11 +42,11 @@ const HomeCarousel: types.Brick<HomeCarouselProps> = ({ products }) => {
 };
 
 HomeCarousel.schema = {
-  name: 'home-carousel',
-  label: 'Home Carousel',
+  name: "home-carousel",
+  label: "Home Carousel",
   getDefaultProps: () => ({}),
   getExternalData: async () => {
-    const products = await getCollectionProducts({ collection: 'hidden-homepage-carousel' });
+    const products = await getCollectionProducts({ collection: "hidden-homepage-carousel" });
     return { products };
   }
 };

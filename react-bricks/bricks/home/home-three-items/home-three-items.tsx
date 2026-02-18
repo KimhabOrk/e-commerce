@@ -1,7 +1,7 @@
-import { ThreeItemGridItem } from '@/components/grid/three-items';
-import { getCollectionProducts, getProducts } from '@/lib/shopify';
-import { Product } from '@/lib/shopify/types';
-import { types } from 'react-bricks/rsc';
+import { ThreeItemGridItem } from "@/components/grid/three-items";
+import { getCollectionProducts, getProducts } from "@/lib/shopify";
+import { Product } from "@/lib/shopify/types";
+import { types } from "react-bricks/rsc";
 
 interface HomeThreeItemsProps {
   shopify: boolean;
@@ -18,12 +18,12 @@ const HomeThreeItems: types.Brick<HomeThreeItemsProps> = ({
   secondProduct,
   thirdProduct
 }) => {
-  const savedColorMode = typeof window === 'undefined' ? '' : localStorage.getItem('color-mode');
+  const savedColorMode = typeof window === "undefined" ? "" : localStorage.getItem("color-mode");
 
   const placeholderProduct =
-    savedColorMode === 'dark'
-      ? 'https://dummyimage.com/800x800/374151/9ca3af'
-      : 'https://dummyimage.com/800x800/f3f4f6/9ca3af';
+    savedColorMode === "dark"
+      ? "https://dummyimage.com/800x800/374151/9ca3af"
+      : "https://dummyimage.com/800x800/f3f4f6/9ca3af";
 
   const renderGrid = (input: (Product | undefined)[]) => (
     <section className="mx-auto grid max-w-screen-2xl gap-4 px-4 pb-4 md:grid-cols-6 md:grid-rows-2">
@@ -49,28 +49,28 @@ const HomeThreeItems: types.Brick<HomeThreeItemsProps> = ({
 };
 
 HomeThreeItems.schema = {
-  name: 'home-three-items',
-  label: 'Home Three Items',
+  name: "home-three-items",
+  label: "Home Three Items",
   getDefaultProps: () => ({
     shopify: false
   }),
   getExternalData: async (page, props) => {
     if (props?.shopify) {
       const products = await getCollectionProducts({
-        collection: 'hidden-homepage-featured-items'
+        collection: "hidden-homepage-featured-items"
       });
       return { products };
     } else return { products: null };
   },
   sideEditProps: [
     {
-      name: 'shopify',
-      label: 'From Shopify collection',
+      name: "shopify",
+      label: "From Shopify collection",
       type: types.SideEditPropType.Boolean
     },
     {
-      name: 'firstProduct',
-      label: '1st Product',
+      name: "firstProduct",
+      label: "1st Product",
       show: (props) => {
         return !props.shopify;
       },
@@ -78,7 +78,7 @@ HomeThreeItems.schema = {
       autocompleteOptions: {
         getOptions: async (input) => {
           const products = await getProducts({
-            sortKey: 'RELEVANCE',
+            sortKey: "RELEVANCE",
             reverse: false,
             query: input
           });
@@ -91,14 +91,14 @@ HomeThreeItems.schema = {
           return option.title;
         },
         getNoOptionsMessage: (input) => {
-          return 'No product found for ' + input;
+          return "No product found for " + input;
         },
-        placeholder: 'Search from Shopify...'
+        placeholder: "Search from Shopify..."
       }
     },
     {
-      name: 'secondProduct',
-      label: '2nd Product',
+      name: "secondProduct",
+      label: "2nd Product",
       show: (props) => {
         return !props.shopify;
       },
@@ -106,7 +106,7 @@ HomeThreeItems.schema = {
       autocompleteOptions: {
         getOptions: async (input) => {
           const products = await getProducts({
-            sortKey: 'RELEVANCE',
+            sortKey: "RELEVANCE",
             reverse: false,
             query: input
           });
@@ -119,14 +119,14 @@ HomeThreeItems.schema = {
           return option.title;
         },
         getNoOptionsMessage: (input) => {
-          return 'No product found for ' + input;
+          return "No product found for " + input;
         },
-        placeholder: 'Search from Shopify...'
+        placeholder: "Search from Shopify..."
       }
     },
     {
-      name: 'thirdProduct',
-      label: '3rd Product',
+      name: "thirdProduct",
+      label: "3rd Product",
       show: (props) => {
         return !props.shopify;
       },
@@ -134,7 +134,7 @@ HomeThreeItems.schema = {
       autocompleteOptions: {
         getOptions: async (input) => {
           const products = await getProducts({
-            sortKey: 'RELEVANCE',
+            sortKey: "RELEVANCE",
             reverse: false,
             query: input
           });
@@ -147,9 +147,9 @@ HomeThreeItems.schema = {
           return option.title;
         },
         getNoOptionsMessage: (input) => {
-          return 'No product found for ' + input;
+          return "No product found for " + input;
         },
-        placeholder: 'Search from Shopify...'
+        placeholder: "Search from Shopify..."
       }
     }
   ]

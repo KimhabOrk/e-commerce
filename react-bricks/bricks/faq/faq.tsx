@@ -1,4 +1,4 @@
-import { Repeater, types } from 'react-bricks/rsc';
+import { Repeater, types } from "react-bricks/rsc";
 
 export interface FaqProps {
   faqs: types.RepeaterItems;
@@ -10,23 +10,21 @@ const Faq: types.Brick<FaqProps> = ({ faqs }) => {
       <Repeater
         propName="faqs"
         items={faqs}
-        renderWrapper={(children) => (
-          <div className="prose dark:prose-invert">{children}</div>
-        )}
+        renderWrapper={(children) => <div className="prose dark:prose-invert">{children}</div>}
       />
     </div>
   );
 };
 
 Faq.schema = {
-  name: 'faq',
-  label: 'Faq',
+  name: "faq",
+  label: "Faq",
   getDefaultProps: () => ({}),
   repeaterItems: [
     {
-      name: 'faqs',
-      itemType: 'faq-item',
-      itemLabel: 'Question'
+      name: "faqs",
+      itemType: "faq-item",
+      itemLabel: "Question"
     }
   ]
 };

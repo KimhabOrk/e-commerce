@@ -1,13 +1,13 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
-export default function StarEmpty(props: React.ComponentProps<'svg'>) {
+export default function StarEmpty(props: React.ComponentProps<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 48 48"
       {...props}
       className={clsx(
-        'h-4 w-4 fill-white stroke-black stroke-2 dark:fill-black dark:stroke-white',
+        "h-4 w-4 fill-white stroke-black stroke-2 dark:fill-black dark:stroke-white",
         props.className
       )}
     >

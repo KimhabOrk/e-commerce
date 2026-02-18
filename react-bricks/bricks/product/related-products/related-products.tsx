@@ -1,8 +1,8 @@
-import { GridTileImage } from '@/components/grid/tile';
-import { getProductRecommendations } from '@/lib/shopify';
-import { Product } from '@/lib/shopify/types';
-import Link from 'next/link';
-import { types } from 'react-bricks/rsc';
+import { GridTileImage } from "@/components/grid/tile";
+import { getProductRecommendations } from "@/lib/shopify";
+import { Product } from "@/lib/shopify/types";
+import Link from "next/link";
+import { types } from "react-bricks/rsc";
 
 interface RelatedProductsProps {
   relatedProducts: Product[] | null;
@@ -43,8 +43,8 @@ const RelatedProducts: types.Brick<RelatedProductsProps> = ({ relatedProducts })
 };
 
 RelatedProducts.schema = {
-  name: 'related-products',
-  label: 'Shopify Related Products',
+  name: "related-products",
+  label: "Shopify Related Products",
   getDefaultProps: () => ({}),
   getExternalData: async (page) => {
     if (!page?.externalData?.product) {

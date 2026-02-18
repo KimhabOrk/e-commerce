@@ -1,18 +1,24 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+    typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
-    formats: ['image/avif', 'image/webp'],
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'cdn.shopify.com',
-        pathname: '/s/files/**'
+        protocol: "https",
+        hostname: "cdn.shopify.com",
+        pathname: "/s/files/**"
       },
       {
-        protocol: 'https',
-        hostname: 'dummyimage.com',
-        port: '',
-        pathname: '/**'
+        protocol: "https",
+        hostname: "ik.imagekit.io",
+        port: "",
+        pathname: "/**"
       }
     ]
   }

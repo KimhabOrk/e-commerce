@@ -1,4 +1,4 @@
-import { RichText, types } from 'react-bricks/rsc';
+import { RichText, types } from "react-bricks/rsc";
 
 interface ParagraphProps {
   text: types.TextValue;
@@ -7,7 +7,7 @@ interface ParagraphProps {
 const Paragraph: types.Brick<ParagraphProps> = ({ text }) => {
   return (
     <div className="mx-8 max-w-2xl py-10 sm:mx-auto" lang="en">
-      <div className={'prose mx-auto mb-0 mt-8 max-w-6xl dark:prose-invert first:mt-0'}>
+      <div className={"prose mx-auto mb-0 mt-8 max-w-6xl dark:prose-invert first:mt-0"}>
         <RichText
           propName="text"
           value={text}
@@ -28,8 +28,8 @@ const Paragraph: types.Brick<ParagraphProps> = ({ text }) => {
 };
 
 Paragraph.schema = {
-  name: 'paragraph',
-  label: 'Paragraph',
+  name: "paragraph",
+  label: "Paragraph",
   getDefaultProps: () => ({})
 };
 

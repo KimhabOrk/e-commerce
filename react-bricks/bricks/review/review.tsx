@@ -1,7 +1,7 @@
-import { types, Text } from 'react-bricks/rsc';
-import StarRatingInput from './star-rating-input';
-import dayjs from 'dayjs';
-import StarRating from '@/components/product/star-rating';
+import { types, Text } from "react-bricks/rsc";
+import StarRatingInput from "./star-rating-input";
+import dayjs from "dayjs";
+import StarRating from "@/components/product/star-rating";
 interface ReviewProps {
   title: types.TextValue;
   rating: number;
@@ -12,7 +12,7 @@ interface ReviewProps {
 
 const Review: types.Brick<ReviewProps> = ({ title, rating, userName, publishDate, reviewText }) => {
   return (
-    <div className="py-4 px-2">
+    <div className="px-2 py-4">
       <Text
         propName="title"
         value={title}
@@ -32,7 +32,7 @@ const Review: types.Brick<ReviewProps> = ({ title, rating, userName, publishDate
             renderPlaceholder={() => <div className="">username</div>}
           />
           <div>•</div>
-          <div>{dayjs(publishDate).format('MMMM D, YYYY')}</div>
+          <div>{dayjs(publishDate).format("MMMM D, YYYY")}</div>
         </div>
       </div>
       <Text
@@ -48,26 +48,26 @@ const Review: types.Brick<ReviewProps> = ({ title, rating, userName, publishDate
 };
 
 Review.schema = {
-  name: 'review',
-  label: 'Review',
+  name: "review",
+  label: "Review",
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    title: 'Review Title',
-    userName: 'Name',
+    title: "Review Title",
+    userName: "Name",
     rating: 0,
     publishDate: new Date(),
-    reviewText: 'Good product!'
+    reviewText: "Good product!"
   }),
   sideEditProps: [
     {
-      name: 'rating',
-      label: 'Rating',
+      name: "rating",
+      label: "Rating",
       type: types.SideEditPropType.Custom,
       component: ({ value, onChange }) => <StarRatingInput value={value} onChange={onChange} />
     },
     {
-      name: 'publishDate',
-      label: 'Publish date',
+      name: "publishDate",
+      label: "Publish date",
       type: types.SideEditPropType.Date
     }
   ]

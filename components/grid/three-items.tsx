@@ -1,7 +1,7 @@
-import { GridTileImage } from 'components/grid/tile';
-import { getCollectionProducts } from 'lib/shopify';
-import type { Product } from 'lib/shopify/types';
-import Link from 'next/link';
+import { GridTileImage } from "components/grid/tile";
+import { getCollectionProducts } from "lib/shopify";
+import type { Product } from "lib/shopify/types";
+import Link from "next/link";
 
 export function ThreeItemGridItem({
   item,
@@ -10,13 +10,13 @@ export function ThreeItemGridItem({
   placeholder
 }: {
   item?: Product | null;
-  size: 'full' | 'half';
+  size: "full" | "half";
   priority?: boolean;
   placeholder: string;
 }) {
   return (
     <div
-      className={size === 'full' ? 'md:col-span-4 md:row-span-2' : 'md:col-span-2 md:row-span-1'}
+      className={size === "full" ? "md:col-span-4 md:row-span-2" : "md:col-span-2 md:row-span-1"}
     >
       <Link
         className="relative block aspect-square h-full w-full"
@@ -27,15 +27,15 @@ export function ThreeItemGridItem({
           src={item?.featuredImage.url || placeholder}
           fill
           sizes={
-            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+            size === "full" ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 768px) 33vw, 100vw"
           }
           priority={priority}
-          alt={item?.title || ''}
+          alt={item?.title || ""}
           label={{
-            position: size === 'full' ? 'center' : 'bottom',
+            position: size === "full" ? "center" : "bottom",
             title: item?.title as string,
-            amount: item?.priceRange.maxVariantPrice.amount || '0.00',
-            currencyCode: item?.priceRange.maxVariantPrice.currencyCode || 'USD'
+            amount: item?.priceRange.maxVariantPrice.amount || "0.00",
+            currencyCode: item?.priceRange.maxVariantPrice.currencyCode || "USD"
           }}
         />
       </Link>
@@ -46,14 +46,14 @@ export function ThreeItemGridItem({
 export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts({
-    collection: 'hidden-homepage-featured-items'
+    collection: "hidden-homepage-featured-items"
   });
 
-  const savedColorMode = typeof window === 'undefined' ? '' : localStorage.getItem('color-mode');
+  const savedColorMode = typeof window === "undefined" ? "" : localStorage.getItem("color-mode");
   const placeholderProduct =
-    savedColorMode === 'dark'
-      ? 'https://dummyimage.com/800x800/374151/9ca3af'
-      : 'https://dummyimage.com/800x800/f3f4f6/9ca3af';
+    savedColorMode === "dark"
+      ? "https://dummyimage.com/800x800/374151/9ca3af"
+      : "https://dummyimage.com/800x800/f3f4f6/9ca3af";
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
 

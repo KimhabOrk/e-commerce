@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useRouter, useSearchParams } from 'next/navigation';
-import React, { createContext, useContext, useMemo, useOptimistic } from 'react';
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { createContext, useContext, useMemo, useOptimistic } from "react";
 
 type ProductState = {
   [key: string]: string;
@@ -63,7 +63,7 @@ export function ProductProvider({ children }: { children: React.ReactNode }) {
 export function useProduct() {
   const context = useContext(ProductContext);
   if (context === undefined) {
-    throw new Error('useProduct must be used within a ProductProvider');
+    throw new Error("useProduct must be used within a ProductProvider");
   }
   return context;
 }

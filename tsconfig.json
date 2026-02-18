@@ -38,8 +38,10 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/page.tsx_",
-    "app/(frontend)/[[...page]]/opengraph-image.tsx_"
-, "app/(frontend)/opengraph-image.tsx_"  ],
+    "app/(frontend)/[[...page]]/opengraph-image.tsx_",
+    "app/(frontend)/opengraph-image.tsx_",
+    ".next/dev/types/**/*.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

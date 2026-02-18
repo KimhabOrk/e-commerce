@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { Dialog, Transition } from '@headlessui/react';
-import { usePathname, useSearchParams } from 'next/navigation';
-import { Fragment, Suspense, useEffect, useState } from 'react';
+import { Dialog, Transition } from "@headlessui/react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { Fragment, Suspense, useEffect, useState } from "react";
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Repeater, types } from 'react-bricks/rsc';
-import Search, { SearchSkeleton } from './search';
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Repeater, types } from "react-bricks/rsc";
+import Search, { SearchSkeleton } from "./search";
 
 export default function MobileMenu({ links }: { links: types.RepeaterItems }) {
   const pathname = usePathname();
@@ -21,8 +21,8 @@ export default function MobileMenu({ links }: { links: types.RepeaterItems }) {
         setIsOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function MobileMenu({ links }: { links: types.RepeaterItems }) {
       <button
         onClick={openMobileMenu}
         aria-label="Open mobile menu"
-        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors md:hidden dark:border-neutral-700 dark:text-white"
+        className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white md:hidden"
       >
         <Bars3Icon className="h-4" />
       </button>
@@ -79,12 +79,8 @@ export default function MobileMenu({ links }: { links: types.RepeaterItems }) {
                   propName="links"
                   items={links}
                   itemProps={{ isMobile: true }}
-                  renderWrapper={(items) => (
-                    <ul className="flex w-full flex-col">{items}</ul>
-                  )}
-                  renderItemWrapper={(item) => (
-                    <div onClick={closeMobileMenu}>{item}</div>
-                  )}
+                  renderWrapper={(items) => <ul className="flex w-full flex-col">{items}</ul>}
+                  renderItemWrapper={(item) => <div onClick={closeMobileMenu}>{item}</div>}
                 />
               </div>
             </Dialog.Panel>

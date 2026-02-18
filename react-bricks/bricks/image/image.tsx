@@ -1,4 +1,4 @@
-import { types, Image } from 'react-bricks/rsc';
+import { types, Image } from "react-bricks/rsc";
 
 interface ImageBrickProps {
   image: types.IImageSource;
@@ -18,8 +18,8 @@ const ImageBrick: types.Brick<ImageBrickProps> = ({ image }) => {
 };
 
 ImageBrick.schema = {
-  name: 'image',
-  label: 'Image',
+  name: "image",
+  label: "Image",
   getDefaultProps: () => ({})
 };
 

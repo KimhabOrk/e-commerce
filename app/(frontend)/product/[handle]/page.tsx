@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import ErrorNoKeys from '@/components/react-bricks/error-no-keys';
-import ErrorNoPage from '@/components/react-bricks/error-no-page';
-import { Product } from '@/lib/shopify/types';
-import config from '@/react-bricks/config';
-import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import { getProduct } from 'lib/shopify';
-import { cleanPage, fetchPage, getBricks, JsonLd, PageViewer, types } from 'react-bricks/rsc';
-import { ClickToEdit } from 'react-bricks/rsc/client';
+import ErrorNoKeys from "@/components/react-bricks/error-no-keys";
+import ErrorNoPage from "@/components/react-bricks/error-no-page";
+import { Product } from "@/lib/shopify/types";
+import config from "@/react-bricks/config";
+import { HIDDEN_PRODUCT_TAG } from "lib/constants";
+import { getProduct } from "lib/shopify";
+import { cleanPage, fetchPage, getBricks, JsonLd, PageViewer, types } from "react-bricks/rsc";
+import { ClickToEdit } from "react-bricks/rsc/client";
 
 const getData = async (
   slug: any
@@ -30,21 +30,21 @@ const getData = async (
     };
   }
 
-  let cleanSlug = '';
+  let cleanSlug = "";
 
   if (!slug) {
-    cleanSlug = '/';
-  } else if (typeof slug === 'string') {
+    cleanSlug = "/";
+  } else if (typeof slug === "string") {
     cleanSlug = slug;
   } else {
-    cleanSlug = slug.join('/');
+    cleanSlug = slug.join("/");
   }
 
   const page = await fetchPage({
     slug: cleanSlug,
-    language: 'en',
+    language: "en",
     config,
-    fetchOptions: { next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || '3', 10) } }
+    fetchOptions: { next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || "3", 10) } }
   }).catch(() => {
     errorPage = true;
     return null;
@@ -165,8 +165,8 @@ export default async function ProductPage({ params }: { params: { handle: string
       {pageOk && config && (
         <ClickToEdit
           pageId={pageOk?.id}
-          language={'en'}
-          editorPath={config.editorPath || '/admin/editor'}
+          language={"en"}
+          editorPath={config.editorPath || "/admin/editor"}
           clickToEditSide={config.clickToEditSide}
         />
       )}

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 import {
   JsonLd,
   PageViewer,
@@ -7,12 +7,12 @@ import {
   getBricks,
   getMetadata,
   types
-} from 'react-bricks/rsc';
-import { ClickToEdit } from 'react-bricks/rsc/client';
+} from "react-bricks/rsc";
+import { ClickToEdit } from "react-bricks/rsc/client";
 
-import ErrorNoKeys from 'components/react-bricks/error-no-keys';
-import ErrorNoPage from 'components/react-bricks/error-no-page';
-import config from '@/react-bricks/config';
+import ErrorNoKeys from "components/react-bricks/error-no-keys";
+import ErrorNoPage from "components/react-bricks/error-no-page";
+import config from "@/react-bricks/config";
 
 const getData = async (
   token?: string
@@ -42,7 +42,7 @@ const getData = async (
   const page = await fetchPagePreview({
     token,
     config,
-    fetchOptions: { cache: 'no-store' }
+    fetchOptions: { cache: "no-store" }
   }).catch(() => {
     errorPage = true;
     return null;
@@ -86,7 +86,7 @@ export default async function Page({ searchParams }: { searchParams: { p?: strin
         <ClickToEdit
           pageId={pageOk?.id}
           language={pageOk.language}
-          editorPath={config.editorPath || '/admin/editor'}
+          editorPath={config.editorPath || "/admin/editor"}
           clickToEditSide={config.clickToEditSide}
         />
       )}

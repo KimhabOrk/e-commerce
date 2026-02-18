@@ -1,4 +1,4 @@
-import { types, Text, Repeater } from 'react-bricks/rsc';
+import { types, Text, Repeater } from "react-bricks/rsc";
 
 interface CarouselProps {
   title: string;
@@ -23,7 +23,7 @@ const Carousel: types.Brick<CarouselProps> = ({ title, products, autoplay }) => 
         renderPlaceholder={({ children }) => <div>{children}</div>}
       />
 
-      <ul className={`mt-4 flex w-full gap-4 pt-1 ${autoplay && 'animate-carousel'}`}>
+      <ul className={`mt-4 flex w-full gap-4 pt-1 ${autoplay && "animate-carousel"}`}>
         <Repeater propName="products" items={carouselProducts} />
       </ul>
     </div>
@@ -31,22 +31,22 @@ const Carousel: types.Brick<CarouselProps> = ({ title, products, autoplay }) => 
 };
 
 Carousel.schema = {
-  name: 'carousel',
-  label: 'Carousel',
+  name: "carousel",
+  label: "Carousel",
   getDefaultProps: () => ({
-    title: 'Carousel Products',
+    title: "Carousel Products",
     autoPlay: false
   }),
   repeaterItems: [
     {
-      name: 'products',
-      itemType: 'carousel-item'
+      name: "products",
+      itemType: "carousel-item"
     }
   ],
   sideEditProps: [
     {
-      name: 'autoplay',
-      label: 'Autoplay',
+      name: "autoplay",
+      label: "Autoplay",
       type: types.SideEditPropType.Boolean
     }
   ]

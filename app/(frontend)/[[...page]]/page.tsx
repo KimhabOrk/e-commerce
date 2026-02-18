@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
-import config from '@/react-bricks/config';
-import ErrorNoKeys from 'components/react-bricks/error-no-keys';
-import ErrorNoPage from 'components/react-bricks/error-no-page';
+import config from "@/react-bricks/config";
+import ErrorNoKeys from "components/react-bricks/error-no-keys";
+import ErrorNoPage from "components/react-bricks/error-no-page";
 import {
   JsonLd,
   PageViewer,
@@ -11,8 +11,8 @@ import {
   fetchPages,
   getBricks,
   types
-} from 'react-bricks/rsc';
-import { ClickToEdit } from 'react-bricks/rsc/client';
+} from "react-bricks/rsc";
+import { ClickToEdit } from "react-bricks/rsc/client";
 
 // import Prose from 'components/prose';
 // import { getPage } from 'lib/shopify';
@@ -38,21 +38,21 @@ const getData = async (
     };
   }
 
-  let cleanSlug = '';
+  let cleanSlug = "";
 
   if (!slug) {
-    cleanSlug = '/';
-  } else if (typeof slug === 'string') {
+    cleanSlug = "/";
+  } else if (typeof slug === "string") {
     cleanSlug = slug;
   } else {
-    cleanSlug = slug.join('/');
+    cleanSlug = slug.join("/");
   }
 
   const page = await fetchPage({
     slug: cleanSlug,
-    language: 'en',
+    language: "en",
     config,
-    fetchOptions: { next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || '3', 10) } }
+    fetchOptions: { next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || "3", 10) } }
   }).catch(() => {
     errorPage = true;
     return null;
@@ -71,14 +71,14 @@ export async function generateStaticParams() {
   }
 
   const allPages = await fetchPages(config.apiKey, {
-    language: 'en',
-    type: 'page'
+    language: "en",
+    type: "page"
   });
 
   const pages = allPages
     .map((page) =>
       page.translations.map((translation) => ({
-        page: translation.slug.split('/')
+        page: translation.slug.split("/")
       }))
     )
     .flat();
@@ -91,7 +91,7 @@ export async function generateMetadata({
 }: {
   params: { page: string[] };
 }): Promise<Metadata> {
-  const { page } = await getData(params.page?.join('/'));
+  const { page } = await getData(params.page?.join("/"));
   if (!page?.meta) {
     return {};
   }
@@ -102,13 +102,13 @@ export async function generateMetadata({
     openGraph: {
       publishedTime: page.createdAt,
       modifiedTime: page.publishedAt,
-      type: 'article'
+      type: "article"
     }
   };
 }
 
 export default async function Page({ params }: { params: { page: string[] } }) {
-  const { page, errorNoKeys, errorPage } = await getData(params.page?.join('/'));
+  const { page, errorNoKeys, errorPage } = await getData(params.page?.join("/"));
 
   // Clean the received content
   // Removes unknown or not allowed bricks
@@ -129,8 +129,8 @@ export default async function Page({ params }: { params: { page: string[] } }) {
       {pageOk && config && (
         <ClickToEdit
           pageId={pageOk?.id}
-          language={'en'}
-          editorPath={config.editorPath || '/admin/editor'}
+          language={"en"}
+          editorPath={config.editorPath || "/admin/editor"}
           clickToEditSide={config.clickToEditSide}
         />
       )}

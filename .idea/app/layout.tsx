@@ -14,19 +14,15 @@ export const metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     default: SITE_NAME!,
-    template: `%s | ${SITE_NAME}`,
+    template: `%s | ${SITE_NAME}`
   },
   robots: {
     follow: true,
-    index: true,
-  },
+    index: true
+  }
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
   // Don't await the fetch, pass the Promise to the context provider
   const cart = getCart();
 

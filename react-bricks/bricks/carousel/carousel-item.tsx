@@ -1,19 +1,19 @@
-import { GridTileImage } from '@/components/grid/tile';
-import { getProducts } from '@/lib/shopify';
-import { Product } from '@/lib/shopify/types';
+import { GridTileImage } from "@/components/grid/tile";
+import { getProducts } from "@/lib/shopify";
+import { Product } from "@/lib/shopify/types";
 
-import { types, Link } from 'react-bricks/rsc';
+import { types, Link } from "react-bricks/rsc";
 interface CarouselItemProps {
   product: Product;
 }
 
 const CarouselItem: types.Brick<CarouselItemProps> = ({ product }) => {
-  const savedColorMode = typeof window === 'undefined' ? '' : localStorage.getItem('color-mode');
+  const savedColorMode = typeof window === "undefined" ? "" : localStorage.getItem("color-mode");
 
   const placeholderProduct =
-    savedColorMode === 'dark'
-      ? 'https://dummyimage.com/800x800/374151/9ca3af'
-      : 'https://dummyimage.com/800x800/f3f4f6/9ca3af';
+    savedColorMode === "dark"
+      ? "https://dummyimage.com/800x800/374151/9ca3af"
+      : "https://dummyimage.com/800x800/f3f4f6/9ca3af";
 
   return (
     <li className="aspect-square w-full flex-none min-[475px]:w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
@@ -39,18 +39,18 @@ const CarouselItem: types.Brick<CarouselItemProps> = ({ product }) => {
 };
 
 CarouselItem.schema = {
-  name: 'carousel-item',
-  label: 'Carousel item',
+  name: "carousel-item",
+  label: "Carousel item",
   hideFromAddMenu: true,
   sideEditProps: [
     {
-      name: 'product',
-      label: 'Product',
+      name: "product",
+      label: "Product",
       type: types.SideEditPropType.Autocomplete,
       autocompleteOptions: {
         getOptions: async (input) => {
           const products = await getProducts({
-            sortKey: 'RELEVANCE',
+            sortKey: "RELEVANCE",
             reverse: false,
             query: input
           });
@@ -63,9 +63,9 @@ CarouselItem.schema = {
           return option.title;
         },
         getNoOptionsMessage: (input) => {
-          return 'No page found with ' + input;
+          return "No page found with " + input;
         },
-        placeholder: 'Search from Shopify...'
+        placeholder: "Search from Shopify..."
       }
     }
   ]

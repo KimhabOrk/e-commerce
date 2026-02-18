@@ -1,16 +1,16 @@
-import config from '@/react-bricks/config';
-import ErrorNoFooter from 'components/react-bricks/error-no-footer';
-import ErrorNoHeader from 'components/react-bricks/error-no-header';
-import ErrorNoKeys from 'components/react-bricks/error-no-keys';
-import PageLayout from 'components/react-bricks/layout';
-import ReactBricksApp from 'components/react-bricks/react-bricks-app';
-import { ThemeProvider } from 'components/react-bricks/theme-provider';
-import { PageViewer, cleanPage, fetchPage, getBricks, register, types } from 'react-bricks/rsc';
-import '../../globals.css';
+import config from "@/react-bricks/config";
+import ErrorNoFooter from "components/react-bricks/error-no-footer";
+import ErrorNoHeader from "components/react-bricks/error-no-header";
+import ErrorNoKeys from "components/react-bricks/error-no-keys";
+import PageLayout from "components/react-bricks/layout";
+import ReactBricksApp from "components/react-bricks/react-bricks-app";
+import { ThemeProvider } from "components/react-bricks/theme-provider";
+import { PageViewer, cleanPage, fetchPage, getBricks, register, types } from "react-bricks/rsc";
+import "../../globals.css";
 
 export const metadata = {
-  title: 'React Bricks Starter',
-  description: 'Next.js with Server Components'
+  title: "React Bricks Starter",
+  description: "Next.js with Server Components"
 };
 
 register(config);
@@ -41,11 +41,11 @@ const getData = async (
   }
 
   const [header, footer] = await Promise.all([
-    fetchPage({ slug: 'header', language: locale, config }).catch(() => {
+    fetchPage({ slug: "header", language: locale, config }).catch(() => {
       errorHeader = true;
       return null;
     }),
-    fetchPage({ slug: 'footer', language: locale, config }).catch(() => {
+    fetchPage({ slug: "footer", language: locale, config }).catch(() => {
       errorFooter = true;
       return null;
     })

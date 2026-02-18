@@ -1,7 +1,7 @@
-import React from 'react';
-import StarFull from '../icons/star-full';
-import StarEmpty from '../icons/star-empty';
-import StarHalf from '../icons/star-half';
+import React from "react";
+import StarFull from "../icons/star-full";
+import StarEmpty from "../icons/star-empty";
+import StarHalf from "../icons/star-half";
 
 interface StarRatingProps {
   rating: number;

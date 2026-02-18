@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const TOTAL_STARS = 5;
 
@@ -28,7 +28,7 @@ const StarRatingInput: React.FC<StarRatingInputProps> = ({ value, onChange }) =>
             <span
               className="m-2 cursor-pointer text-xl"
               style={{
-                color: currentRating <= (hover || value) ? '#ffc107' : '#e4e5e9'
+                color: currentRating <= (hover || value) ? "#ffc107" : "#e4e5e9"
               }}
               onMouseEnter={() => setHover(currentRating)}
               onMouseLeave={() => setHover(0)}

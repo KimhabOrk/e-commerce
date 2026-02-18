@@ -1,4 +1,4 @@
-import { Image, Link, RichText, Text, types } from 'react-bricks/rsc';
+import { Image, Link, RichText, Text, types } from "react-bricks/rsc";
 
 interface TextTextImageProps {
   title: types.TextValue;
@@ -46,7 +46,7 @@ const TextTextImage: types.Brick<TextTextImageProps> = ({
             renderBlock={({ children }) => {
               return (
                 <p className="mt-2 leading-5 text-neutral-500 dark:text-neutral-400">
-                  {children[0].props.children === '' ? <br /> : children}
+                  {children[0].props.children === "" ? <br /> : children}
                 </p>
               );
             }}
@@ -80,7 +80,7 @@ const TextTextImage: types.Brick<TextTextImageProps> = ({
             renderBlock={({ children }) => {
               return (
                 <p className="mt-2 leading-5 text-neutral-500 dark:text-neutral-400">
-                  {children[0].props.children === '' ? <br /> : children}
+                  {children[0].props.children === "" ? <br /> : children}
                 </p>
               );
             }}
@@ -114,184 +114,184 @@ const TextTextImage: types.Brick<TextTextImageProps> = ({
 };
 
 TextTextImage.schema = {
-  name: 'text-text-image',
-  label: 'Product Info',
+  name: "text-text-image",
+  label: "Product Info",
   getDefaultProps: () => ({
-    title: 'Product details',
-    subtitle: 'Subtitle',
-    'text-col-1': [
+    title: "Product details",
+    subtitle: "Subtitle",
+    "text-col-1": [
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'striped cotton T-shirt'
+            text: "striped cotton T-shirt"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: ''
+            text: ""
           }
         ]
       },
       {
-        type: 'h3',
+        type: "h3",
         children: [
           {
-            text: 'Highlights'
+            text: "Highlights"
           }
         ]
       },
       {
-        type: 'ul',
+        type: "ul",
         children: [
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'black/white'
+                text: "black/white"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'cotton'
+                text: "cotton"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'jersey texture'
+                text: "jersey texture"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'horizontal stripe pattern'
+                text: "horizontal stripe pattern"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'twist detailing'
+                text: "twist detailing"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'crew neck'
+                text: "crew neck"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'short sleeves'
+                text: "short sleeves"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'lace cuffs'
+                text: "lace cuffs"
               }
             ]
           },
           {
-            type: 'li',
+            type: "li",
             children: [
               {
-                text: 'asymmetric hem'
+                text: "asymmetric hem"
               }
             ]
           }
         ]
       }
     ],
-    'text-col-2': [
+    "text-col-2": [
       {
-        type: 'h3',
+        type: "h3",
         children: [
           {
-            text: 'Composition'
+            text: "Composition"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'Cotton 100%'
+            text: "Cotton 100%"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: ''
+            text: ""
           }
         ]
       },
       {
-        type: 'h3',
+        type: "h3",
         children: [
           {
-            text: 'Washing instructions'
+            text: "Washing instructions"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'Read Manufacturer Guidelines'
+            text: "Read Manufacturer Guidelines"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: ''
+            text: ""
           }
         ]
       },
       {
-        type: 'h3',
+        type: "h3",
         children: [
           {
-            text: 'Product IDs'
+            text: "Product IDs"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'Product ID: T298EFX8'
+            text: "Product ID: T298EFX8"
           }
         ]
       },
       {
-        type: 'paragraph',
+        type: "paragraph",
         children: [
           {
-            text: 'Brand style ID: S241Z01PJEBA012'
+            text: "Brand style ID: S241Z01PJEBA012"
           }
         ]
       }

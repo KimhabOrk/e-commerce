@@ -1,4 +1,4 @@
-import { Link, RichText, Text, types } from 'react-bricks/rsc';
+import { Link, RichText, Text, types } from "react-bricks/rsc";
 
 export interface FaqQuestionProps {
   id: string;
@@ -57,14 +57,14 @@ const FaqQuestion: types.Brick<FaqQuestionProps> = ({ id, question, answer }) =>
 };
 
 FaqQuestion.schema = {
-  name: 'faq-item',
-  label: 'Question',
+  name: "faq-item",
+  label: "Question",
   hideFromAddMenu: true,
   getDefaultProps: () => ({}),
   sideEditProps: [
     {
-      name: 'id',
-      label: 'Anchor ID',
+      name: "id",
+      label: "Anchor ID",
       type: types.SideEditPropType.Text
     }
   ]

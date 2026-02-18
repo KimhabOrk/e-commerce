@@ -1,5 +1,5 @@
-import StarRating from '@/components/product/star-rating';
-import { types, RichText, Link, Repeater } from 'react-bricks/rsc';
+import StarRating from "@/components/product/star-rating";
+import { types, RichText, Link, Repeater } from "react-bricks/rsc";
 
 interface AccordionProps {
   title: string;
@@ -22,7 +22,7 @@ const Accordion: types.Brick<AccordionProps> = ({ title, description, reviews })
   return (
     <details
       className="group open:pb-8"
-      style={{ boxShadow: 'inset 0 -1px 0 0 rgb(115, 115, 115)' }}
+      style={{ boxShadow: "inset 0 -1px 0 0 rgb(115, 115, 115)" }}
     >
       <summary className="font-title relative flex cursor-pointer list-none flex-row items-center px-2 py-7 text-xl font-semibold text-black after:absolute after:right-2 after:top-[calc(50%-6px)] after:inline-block after:rotate-45 after:border-b-[3px] after:border-l-0 after:border-r-[3px] after:border-t-0 after:border-black after:p-[3px] after:content-[''] group-open:after:top-[calc(50%-4px)] group-open:after:-rotate-[135deg] dark:text-white after:dark:border-white">
         <div>{title}</div>
@@ -63,7 +63,7 @@ const Accordion: types.Brick<AccordionProps> = ({ title, description, reviews })
           renderUL={({ children }) => (
             <ul className="list-disc px-2 text-neutral-500 dark:text-neutral-400">{children}</ul>
           )}
-          renderLI={({ children }) => <li className="mt-4 ml-4">{children}</li>}
+          renderLI={({ children }) => <li className="ml-4 mt-4">{children}</li>}
           renderPlaceholder={({ children }) => <div>{children}</div>}
         />
 
@@ -74,23 +74,23 @@ const Accordion: types.Brick<AccordionProps> = ({ title, description, reviews })
 };
 
 Accordion.schema = {
-  name: 'accordion',
-  label: 'Accordion',
+  name: "accordion",
+  label: "Accordion",
   hideFromAddMenu: true,
   getDefaultProps: () => ({
-    title: 'Details'
+    title: "Details"
   }),
   sideEditProps: [
     {
-      name: 'title',
-      label: 'Title',
+      name: "title",
+      label: "Title",
       type: types.SideEditPropType.Text
     }
   ],
   repeaterItems: [
     {
-      name: 'reviews',
-      itemType: 'review'
+      name: "reviews",
+      itemType: "review"
     }
   ]
 };

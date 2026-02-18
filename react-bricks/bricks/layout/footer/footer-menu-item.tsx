@@ -1,5 +1,5 @@
-import config from '@/react-bricks/config';
-import { Link, Text, fetchPages, types } from 'react-bricks/rsc';
+import config from "@/react-bricks/config";
+import { Link, Text, fetchPages, types } from "react-bricks/rsc";
 
 interface FooterMenuItemProps {
   linkPage: {
@@ -33,30 +33,30 @@ const FooterMenuItem: types.Brick<FooterMenuItemProps> = ({ linkPage, linkText }
 };
 
 FooterMenuItem.schema = {
-  name: 'footer-menu-item',
-  label: 'Footer Menu Item',
+  name: "footer-menu-item",
+  label: "Footer Menu Item",
   getDefaultProps: () => ({}),
   sideEditProps: [
     {
-      name: 'linkPage',
-      label: 'Link to...',
+      name: "linkPage",
+      label: "Link to...",
       type: types.SideEditPropType.Autocomplete,
       autocompleteOptions: {
         getOptions: async (input) => {
           const pages = await fetchPages({
-            type: 'page',
+            type: "page",
             config,
             fetchOptions: {
-              next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || '3', 10) }
+              next: { revalidate: parseInt(process.env.REACT_BRICKS_REVALIDATE || "3", 10) }
             }
           });
 
           const pagesWithHome = [
             ...pages,
             {
-              name: 'Home',
-              slug: '',
-              language: 'en'
+              name: "Home",
+              slug: "",
+              language: "en"
             }
           ];
 
@@ -79,7 +79,7 @@ FooterMenuItem.schema = {
           return option.name;
         },
         getNoOptionsMessage: (input) => {
-          return 'No page found with ' + input;
+          return "No page found with " + input;
         }
       }
     }

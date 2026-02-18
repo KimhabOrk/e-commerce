@@ -1,9 +1,9 @@
-import { ProductProvider } from '@/components/product/product-context';
-import { Gallery } from 'components/product/gallery';
-import { ProductDescription } from 'components/product/product-description';
-import { Image, Product } from 'lib/shopify/types';
-import { Suspense } from 'react';
-import { Repeater, types } from 'react-bricks/rsc';
+import { ProductProvider } from "@/components/product/product-context";
+import { Gallery } from "components/product/gallery";
+import { ProductDescription } from "components/product/product-description";
+import { Image, Product } from "lib/shopify/types";
+import { Suspense } from "react";
+import { Repeater, types } from "react-bricks/rsc";
 
 interface ProductDetailProps {
   product: Product | null;
@@ -46,17 +46,17 @@ const ProductDetail: types.Brick<ProductDetailProps> = ({ product, accordion }) 
 };
 
 ProductDetail.schema = {
-  name: 'product-detail',
-  label: 'Product Details',
+  name: "product-detail",
+  label: "Product Details",
   getDefaultProps: () => ({}),
   mapExternalDataToProps: (externalData) => ({
     product: externalData.product
   }),
   repeaterItems: [
     {
-      name: 'accordion',
-      itemType: 'accordion',
-      itemLabel: 'Accordion',
+      name: "accordion",
+      itemType: "accordion",
+      itemLabel: "Accordion",
       min: 0,
       max: 5
     }

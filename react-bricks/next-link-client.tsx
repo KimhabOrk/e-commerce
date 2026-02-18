@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { types } from 'react-bricks/rsc';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { types } from "react-bricks/rsc";
 
 const NextLinkClient: types.RenderLocalLink = ({
   href,
@@ -14,12 +14,12 @@ const NextLinkClient: types.RenderLocalLink = ({
 }) => {
   const pathname = usePathname();
 
-  let anchorClassName = '';
+  let anchorClassName = "";
 
   if (pathname === href) {
     anchorClassName = `${className} ${activeClassName}`;
   } else {
-    anchorClassName = className || '';
+    anchorClassName = className || "";
   }
 
   return (

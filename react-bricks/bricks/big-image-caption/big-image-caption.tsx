@@ -1,4 +1,4 @@
-import { types, Text, RichText, Image } from 'react-bricks/rsc';
+import { types, Text, RichText, Image } from "react-bricks/rsc";
 
 interface BigImageCaptionProps {
   title: types.TextValue;
@@ -49,11 +49,11 @@ const BigImageCaption: types.Brick<BigImageCaptionProps> = ({ title, description
 };
 
 BigImageCaption.schema = {
-  name: 'big-image-caption',
-  label: 'Big image with caption',
+  name: "big-image-caption",
+  label: "Big image with caption",
   getDefaultProps: () => ({
-    title: 'Title',
-    description: 'A nice little description'
+    title: "Title",
+    description: "A nice little description"
   })
 };
 

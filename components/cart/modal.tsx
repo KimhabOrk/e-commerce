@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { Dialog, Transition } from '@headlessui/react';
-import { ShoppingCartIcon } from '@heroicons/react/24/outline';
-import LoadingDots from 'components/loading-dots';
-import Price from 'components/price';
-import { DEFAULT_OPTION } from 'lib/constants';
-import { createUrl } from 'lib/utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Fragment, useEffect, useRef, useState } from 'react';
-import { useFormStatus } from 'react-dom';
-import { createCartAndSetCookie, redirectToCheckout } from './actions';
-import { useCart } from './cart-context';
-import CloseCart from './close-cart';
-import { DeleteItemButton } from './delete-item-button';
-import { EditItemQuantityButton } from './edit-item-quantity-button';
-import OpenCart from './open-cart';
+import { Dialog, Transition } from "@headlessui/react";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import LoadingDots from "components/loading-dots";
+import Price from "components/price";
+import { DEFAULT_OPTION } from "lib/constants";
+import { createUrl } from "lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { useFormStatus } from "react-dom";
+import { createCartAndSetCookie, redirectToCheckout } from "./actions";
+import { useCart } from "./cart-context";
+import CloseCart from "./close-cart";
+import { DeleteItemButton } from "./delete-item-button";
+import { EditItemQuantityButton } from "./edit-item-quantity-button";
+import OpenCart from "./open-cart";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -74,7 +74,7 @@ export default function CartModal() {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl md:w-[390px] dark:border-neutral-700 dark:bg-black/80 dark:text-white">
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white md:w-[390px]">
               <div className="flex items-center justify-between">
                 <p className="text-lg font-semibold">My Cart</p>
                 <button aria-label="Close cart" onClick={closeCart}>
@@ -218,7 +218,7 @@ function CheckoutButton() {
       type="submit"
       disabled={pending}
     >
-      {pending ? <LoadingDots className="bg-white" /> : 'Proceed to Checkout'}
+      {pending ? <LoadingDots className="bg-white" /> : "Proceed to Checkout"}
     </button>
   );
 }
